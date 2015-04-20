@@ -1,0 +1,7 @@
+mail[from] = root@{{ inventory_hostname }}
+mail[to] = {{ dest_email_add }}
+mail[subject] = vzwatchd on {{ inventory_hostname }}: NOTICE
+sleep = 60
+verbose = 0
+monitor_fields = failcnt
+_active = 1
