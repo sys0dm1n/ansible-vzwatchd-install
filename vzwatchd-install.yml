@@ -14,15 +14,33 @@
       - name: Check if it is an OpenVZ container and OS Debian or Ubuntu
         fail: msg=" OS is not Debian/Ubuntu or OpenVZ container."
         when: openvz_vm.stat.exists == 'False' and (ansible_distribution != "Ubuntu" or ansible_distribution != "Debian")
-  
+
       - name: Installing make package
         apt: package={{ item }} state=present update_cache=yes cache_valid_time=3600
         with_items:
           - make
           - gcc
+          - libperl-dev
+          - libcpan-perl-releases-perl
 
-      - name: Install vzwatchd from CPAN
-        shell: PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install App::OpenVZ::BCWatch'
+     - name: download cpanm
+        get_url: url=https://cpanmin.us/
+                 dest=/tmp/cpanm.pl
+                 mode=755
+
+      - name: install cpanm so that we can use the ansible cpanm module
+        command: perl cpanm.pl App::cpanminus
+        args:
+          chdir: /tmp/
+          creates: /usr/local/bin/cpanm
+
+      - name: add cpanm symbolic link to /usr/bin/
+        file: src=/usr/local/bin/cpanm
+              dest=/usr/bin/cpanm
+              state=link
+
+      - name: install implicit Bio::Perl dependencies
+        cpanm: name=App::OpenVZ::BCWatch
  
       - name: Edit vzwatchd.conf file
         template: src=vzwatchd.conf.j2 dest=/etc/vzwatchd.conf backup=yes owner=root group=root mode=644
