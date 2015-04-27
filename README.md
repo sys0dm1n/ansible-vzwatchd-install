@@ -1,4 +1,7 @@
 # ansible-vzwatchd-install
+[![GitHub Tags](https://img.shields.io/github/tag/badge/vzwatchd-blue.svg)](https://github.com/sys0dm1n/ansible-vzwatchd-install)
+[![GitHub Stars](https://img.shields.io/github/stars/badge/vzwatchd-yellowgreen.svg)](https://github.com/sys0dm1n/ansible-vzwatchd-install)
+
 Ansible Playbook to quick install vzwatchd on your Openvz Ubuntu/Debian servers.
 
 Vzwatchd is an OpenVZ monitoring daemon that informs the server administrator by email when a limit of the container is reached.
@@ -48,3 +51,13 @@ changed: [Your_Server_Name]
 PLAY RECAP ********************************************************************
 
 Your_Server_Name        : ok=7    changed=3    unreachable=0    failed=0
+
+## Contributing
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
