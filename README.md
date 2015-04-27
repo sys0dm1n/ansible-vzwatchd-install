@@ -1,6 +1,7 @@
 # ansible-vzwatchd-install
-[![GitHub Tags](https://img.shields.io/github/tag/badge/vzwatchd-blue.svg)](https://github.com/sys0dm1n/ansible-vzwatchd-install)
-[![GitHub Stars](https://img.shields.io/github/stars/badge/vzwatchd-yellowgreen.svg)](https://github.com/sys0dm1n/ansible-vzwatchd-install)
+[![GitHub tag](https://img.shields.io/github/tag/sys0dm1n/ansible-vzwatchd-install.svg?style=plastic)](https://github.com/sys0dm1n/ansible-vzwatchd-install)
+[![GitHub stars](https://img.shields.io/github/stars/sys0dm1n/ansible-vzwatchd-install.svg?style=plastic)](https://github.com/sys0dm1n/ansible-vzwatchd-install)
+[![GitHub release](https://img.shields.io/github/release/sys0dm1n/ansible-vzwatchd-install.svg?style=plastic)](https://github.com/sys0dm1n/ansible-vzwatchd-install)
 
 Ansible Playbook to quick install vzwatchd on your Openvz Ubuntu/Debian servers.
 
