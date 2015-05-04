@@ -27,11 +27,10 @@
        ignore_errors: true
        when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'trusty'
 
-     - name: download cpanm
-        get_url: url=https://cpanmin.us/
+     - name: Download cpanm
+        get_url: url=https://raw.githubusercontent.com/miyagawa/cpanminus/master/cpanm
                  dest=/tmp/cpanm.pl
                  mode=755
-                 validate_certs=no
 
       - name: install cpanm so that we can use the ansible cpanm module
         command: perl cpanm.pl App::cpanminus
