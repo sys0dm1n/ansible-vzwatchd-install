@@ -22,7 +22,7 @@
           - gcc
           - libperl-dev
 
-     - name: Installing make package
+     - name: Installing libcpan-perl-releases-perl package
        apt: package=libcpan-perl-releases-perl state=present update_cache=yes cache_valid_time=3600
        ignore_errors: true
        when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'trusty'
