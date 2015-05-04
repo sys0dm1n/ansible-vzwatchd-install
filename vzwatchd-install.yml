@@ -21,12 +21,17 @@
           - make
           - gcc
           - libperl-dev
-          - libcpan-perl-releases-perl
+
+     - name: Installing make package
+       apt: package=libcpan-perl-releases-perl state=present update_cache=yes cache_valid_time=3600
+       ignore_errors: true
+       when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'trusty'
 
      - name: download cpanm
         get_url: url=https://cpanmin.us/
                  dest=/tmp/cpanm.pl
                  mode=755
+                 validate_certs=no
 
       - name: install cpanm so that we can use the ansible cpanm module
         command: perl cpanm.pl App::cpanminus
